@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Peso:"
+        android:text="@string/peso"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,7 +20,8 @@
         android:id="@+id/etPeso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Peso em Kg"
+        android:importantForAutofill="no"
+        android:hint="@string/peso_hint"
         android:inputType="numberDecimal"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Altura:"
+        android:text="@string/altura"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPeso" />
 
@@ -40,7 +41,8 @@
         android:id="@+id/etAltura"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Altura em m"
+        android:importantForAutofill="no"
+        android:hint="@string/altura_hint"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvAltura"
@@ -51,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="IMC:"
+        android:text="@string/resultado"
         android:textAppearance="?attr/textAppearanceBodyLarge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvAltura" />
@@ -61,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="0.0"
+        android:text="@string/zeros"
         android:textAppearance="?attr/textAppearanceBodyLarge"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/tvRotuloResultado"
@@ -73,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Calcular"
+        android:text="@string/calcular"
         app:layout_constraintStart_toStartOf="@id/tvResultado"
         app:layout_constraintTop_toBottomOf="@id/tvResultado" />
 
@@ -82,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Limpar"
+        android:text="@string/limpar"
         app:layout_constraintStart_toEndOf="@id/btCalcular"
         app:layout_constraintTop_toTopOf="@id/btCalcular" />
 

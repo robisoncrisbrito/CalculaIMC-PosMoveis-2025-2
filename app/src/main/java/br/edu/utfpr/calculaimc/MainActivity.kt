@@ -9,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.text.NumberFormat
+import java.util.Locale
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btLimpar.setOnLongClickListener{
-            Toast.makeText( this, "Botão limpar a tela.", Toast.LENGTH_SHORT ).show()
+            Toast.makeText( this, getString(R.string.limpar_long_click), Toast.LENGTH_SHORT ).show()
             true
         }
     } //fim do onCreate()
@@ -62,28 +64,42 @@ class MainActivity : AppCompatActivity() {
         val altura = etAltura.text.toString().toDoubleOrNull()
 
         if ( peso == null ) {
-            etPeso.error = "Peso devo ser informado."
+            etPeso.error = getString(R.string.peso_error)
             return
         }
 
         if ( altura == null ) {
             //Toast.makeText( this, "Altura deve ser informado.", Toast.LENGTH_SHORT ).show()
-            etAltura.error = "altura devo ser informado."
+            etAltura.error = getString(R.string.altura_error2)
             return
         }
 
-
         //processamento
-        val resultado = peso / altura.pow( 2.0 )
+        val locale = Locale.getDefault().language //recupera a linguagem do device (en, pt)
+        //val countryCode = Locale.getDefault().country //recupera o país do device (US, BR)
+        val resultado: Double = calcularImc(peso, altura, locale )
+
 
         //saída
-        tvResultado.text = "%.2f".format( resultado )
+        val nf = NumberFormat.getInstance( Locale.getDefault() )
+        tvResultado.text = nf.format( resultado )
+    }
+
+    private fun calcularImc(peso: Double, altura: Double, locale:String): Double {
+
+        if ( locale.equals( "en", ignoreCase = true ) ) {
+            return 703 * ( peso / altura.pow(2.0))
+        } else {
+            return  ( peso / altura.pow(2.0))
+        }
+
+        val resultado = peso / altura.pow( 2.0 )
     }
 
     private fun btLimparOnClick() {
         etPeso.setText( "" )
         etAltura.setText( "" )
-        tvResultado.setText( "" )
+        tvResultado.text =  getString(R.string.zeros)
         etPeso.error = null
         etAltura.error = null
         etPeso.requestFocus()
