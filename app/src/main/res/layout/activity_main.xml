@@ -1,76 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvPeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Peso:" />
+        android:padding="16dp"
+        android:text="Peso:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etPeso"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Peso em Kg"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvPeso"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tvAltura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Altura:" />
+        android:padding="16dp"
+        android:text="Altura:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPeso" />
 
     <EditText
         android:id="@+id/etAltura"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Altura em m"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvAltura"
+        app:layout_constraintTop_toBottomOf="@id/etPeso" />
 
     <TextView
+        android:id="@+id/tvRotuloResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="IMC:"
         android:textAppearance="?attr/textAppearanceBodyLarge"
-        android:text="Resultado:" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAltura" />
 
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="0.0"
         android:textAppearance="?attr/textAppearanceBodyLarge"
         android:textStyle="bold"
-        android:text="0.0" />
+        app:layout_constraintStart_toEndOf="@id/tvRotuloResultado"
+        app:layout_constraintTop_toBottomOf="@id/etAltura" />
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="20dp" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:padding="16dp"
+        android:text="Calcular"
+        app:layout_constraintStart_toStartOf="@id/tvResultado"
+        app:layout_constraintTop_toBottomOf="@id/tvResultado" />
 
-        <Button
-            android:id="@+id/btCalcular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calcular" />
+    <Button
+        android:id="@+id/btLimpar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Limpar"
+        app:layout_constraintStart_toEndOf="@id/btCalcular"
+        app:layout_constraintTop_toTopOf="@id/btCalcular" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/btLimpar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Limpar" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
